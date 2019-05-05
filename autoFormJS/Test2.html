@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+ 	<table>
+	<tr>
+		<td>姓名</td>
+		<td>
+			<input type="hidden" name="id" />
+			<input type="text" name="name" /> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td>地区</td>
+		<td>
+			<select name="area">
+				<option value="nankai">南开区</option>
+				<option value="hexi">河西区</option>
+				<option value="xiqing">西青区</option>
+			</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>性别</td>
+		<td>
+			<input type="radio" name="sex" value="male" />男
+			<input type="radio" name="sex" value="female" />女
+		</td>
+	</tr>
+	
+	<tr>
+		<td>爱好</td>
+		<td>
+			<input type="checkbox" name="hobby[]" value="movie" />电影
+			<input type="checkbox" name="hobby[]" value="music" />音乐
+			<input type="checkbox" name="hobby[]" value="basketball" />篮球
+		</td>
+	</tr>
+	
+	<tr>
+		<td>简介</td>
+		<td>
+			<textarea name="intro"></textarea>
+		</td>
+	</tr>
+	
+</table>
+  
+
+<script src="js/jquery.min.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+$(function(){
+	var str = "{'name': 'BeJson','area': 'hexi'}"; //定义一个字符串
+	
+	loadData(str)
+});
+
+function loadData(jsonStr){
+	var obj = eval("("+jsonStr+")");
+	var key,value,tagName,type,arr;
+	for(x in obj){
+		key = x;
+		value = obj[x];
+		
+		$("[name='"+key+"'],[name='"+key+"[]']").each(function(){
+			tagName = $(this)[0].tagName;
+			type = $(this).attr('type');
+			if(tagName=='INPUT'){
+				if(type=='radio'){
+					$(this).attr('checked',$(this).val()==value);
+				}else if(type=='checkbox'){
+					arr = value.split(',');
+					for(var i =0;i<arr.length;i++){
+						if($(this).val()==arr[i]){
+							$(this).attr('checked',true);
+							break;
+						}
+					}
+				}else{
+					$(this).val(value);
+				}
+			}else if(tagName=='SELECT' || tagName=='TEXTAREA'){
+				$(this).val(value);
+			}
+			
+		});
+	}
+}
+
+</script>
+
+</body>
+</html>
