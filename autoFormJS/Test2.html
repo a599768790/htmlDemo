@@ -68,7 +68,7 @@ $(function(){
 function loadData(jsonStr){
 	var obj = eval("("+jsonStr+")");
 	var key,value,tagName,type,arr;
-	for(x in obj){
+	for(var x in obj){
 		key = x;
 		value = obj[x];
 		
