@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+	<form id="register">
+        <input type="text" name="user" value="hpc"><br>
+        <input type="text" name="pwd" value="123"><br>
+        <input type="text" name="sex" value="M"><br>
+        <input type="text" name="age" value="100"><br>
+        <input type="text" name="phone" value="13011112222"><br>
+        <input type="text" name="email" value="xxx@xxx.com"><br>
+    </form><br>
+    Jquery 的serialize()方法
+    <div id="show">
+        
+    </div><br>
+    Jquery 的serializeArray()方法
+    <div id="show2">
+        
+    </div><br>
+    Jquery serializeArray()方法的数据转json
+    <div id="show3">
+
+<script src="js/jquery.min.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+
+	var register =$("#register");
+    //返回字符串xxx=xxx&yyy=yyy;
+    var formData = register.serialize();
+    $("#show").html(formData);
+    // 返回的是json数组[{xxx:xxx},{yyy:yyy}]
+    formData = register.serializeArray();
+    $("#show2").html(JSON.stringify(formData));
+
+    //将json数组转为json 对象
+    var jsons = transformToJson(formData);
+    $("#show3").html(JSON.stringify(jsons));
+
+    // 转为json数据格式
+    function transformToJson(formData){
+        var obj={}
+        for (var i in formData) {
+            /*[{"name":"user","value":"hpc"},{"name":"pwd","value":"123"},{"name":"sex","value":"M"},{"name":"age","value":"100"},{"name":"phone","value":"13011112222"},{"name":"email","value":"xxx@xxx.com"}]
+            */
+            //下标为的i的name做为json对象的key，下标为的i的value做为json对象的value
+            obj[formData[i].name]=formData[i]['value'];
+        }
+        return obj;
+    }
+
+</script>
+
+</body>
+</html>
