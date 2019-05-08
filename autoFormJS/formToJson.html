@@ -10,7 +10,9 @@
 </head>
 <body>
 	<form id="register">
-        <input type="text" name="user" value="hpc"><br>
+        <div>
+            <input type="text" name="user" value="hpc"><br>
+        </div>
         <input type="text" name="pwd" value="123"><br>
         <input type="text" name="sex" value="M"><br>
         <input type="text" name="age" value="100"><br>
@@ -23,33 +25,29 @@
     </div><br>
     Jquery 的serializeArray()方法
     <div id="show2">
-        
     </div><br>
+    
     Jquery serializeArray()方法的数据转json
     <div id="show3"></div>
-
-	<button onclick="aa()">测试</button>
-
 <script src="js/jquery.min.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
 
 	var register =$("#register");
     //返回字符串xxx=xxx&yyy=yyy;
-    var formData = register.serialize();
-    $("#show").html(formData);
+    // var formData = register.serialize();
+    // $("#show").html(formData);
+
     // 返回的是json数组[{xxx:xxx},{yyy:yyy}]
-    formData = register.serializeArray();
+    var formData = register.serializeArray();
     $("#show2").html(JSON.stringify(formData));
 
-    //将json数组转为json 对象
+    //将json数组转为json对象
     var jsons = transformToJson(formData);
+    //转成字符串提交后台(数据都是通过json字符串提交的)
     $("#show3").html(JSON.stringify(jsons));
 
-	function aa() {
-		var json = $("#register").serializeObject()
-		console.log(json)
-	}
+
 
 // 转为json数据格式
 function transformToJson(formData){
@@ -62,7 +60,8 @@ function transformToJson(formData){
     }
     return obj;
 }
-	
+
+//方法二直接封装成插件，从外部引入全局js，页面直接调用即可
 $.fn.serializeObject = function() {
 	var o = {};
 	var a = this.serializeArray();
