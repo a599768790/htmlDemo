@@ -19,64 +19,55 @@
         <input type="text" name="phone" value="13011112222"><br>
         <input type="text" name="email" value="xxx@xxx.com"><br>
     </form><br>
-    Jquery 的serialize()方法
-    <div id="show">
-        
+
     </div><br>
-    Jquery 的serializeArray()方法
-    <div id="show2">
-    </div><br>
+
+    <button onclick="formToJsonObj()">表单转json对象</button>
+    <button onclick="formToArray()">表单转json数组</button>
     
-    Jquery serializeArray()方法的数据转json
-    <div id="show3"></div>
+
 <script src="../src/js/jquery.min.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
 
-	var register =$("#register");
-    //返回字符串xxx=xxx&yyy=yyy;
-    // var formData = register.serialize();
-    // $("#show").html(formData);
 
-    // 返回的是json数组[{xxx:xxx},{yyy:yyy}]
-    var formData = register.serializeArray();
-    $("#show2").html(JSON.stringify(formData));
+//提交表单
+function formToJsonObj () {
+    //var form = $("#register")
+    var obj = SerializeObject($("#register"));
+    console.log(obj);
 
-    //将json数组转为json对象
-    var jsons = transformToJson(formData);
-    //转成字符串提交后台(数据都是通过json字符串提交的)
-    $("#show3").html(JSON.stringify(jsons));
-
-
-
-// 转为json数据格式
-function transformToJson(formData){
-    var obj={}
-    for (var i in formData) {
-        /*[{"name":"user","value":"hpc"},{"name":"pwd","value":"123"},{"name":"sex","value":"M"},{"name":"age","value":"100"},{"name":"phone","value":"13011112222"},{"name":"email","value":"xxx@xxx.com"}]
-        */
-        //下标为的i的name做为json对象的key，下标为的i的value做为json对象的value
-        obj[formData[i].name]=formData[i]['value'];
-    }
-    return obj;
 }
 
-//方法二直接封装成插件，从外部引入全局js，页面直接调用即可
-$.fn.serializeObject = function() {
-	var o = {};
-	var a = this.serializeArray();
-	$.each(a, function() {
-			if (o[this.name]) {
-					if (!o[this.name].push) {
-							o[this.name] = [ o[this.name] ];
-					}
-					o[this.name].push(this.value || '');
-			} else {
-					o[this.name] = this.value || '';
-			}
-	});
-	return o;
-};
+//表单转数组
+function formToArray () {
+    
+    var Array = $("#register").serializeArray()
+    console.log(Array);
+}
+
+//表单转json对象
+function SerializeObject (form) {
+    var formEL = $(form);
+    var o = {};
+    var a = formEL.serializeArray();
+    $.each(a, function () {
+        if (o[this.name]) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+}
+
+
+
+
+
 </script>
 
 </body>

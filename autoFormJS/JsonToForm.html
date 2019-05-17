@@ -40,9 +40,9 @@
 	<tr>
 		<td>爱好</td>
 		<td>
-			<input type="checkbox" name="hobby[]" value="movie" />电影
-			<input type="checkbox" name="hobby[]" value="music" />音乐
-			<input type="checkbox" name="hobby[]" value="basketball" />篮球
+			<input type="checkbox" name="hobby" value="movie" />电影
+			<input type="checkbox" name="hobby" value="music" />音乐
+			<input type="checkbox" name="hobby" value="basketball" />篮球
 		</td>
 	</tr>
 	
@@ -60,13 +60,12 @@
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
 $(function(){
-	var str = "{'name': 'BeJson','area': 'hexi'}"; //定义一个字符串
+	var str = {"name": "BeJson","area": "hexi","sex":"female","hobby":"basketball","intro":"我叫xxx"}; //定义一个字符串
 	
 	loadData(str)
 });
 
-function loadData(jsonStr){
-	var obj = eval("("+jsonStr+")");
+function loadData(obj){
 	var key,value,tagName,type,arr;
 	for(var x in obj){
 		key = x;
