@@ -8,12 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
   <style>
-    .container{
+    /* .container{
         margin:0 auto;
         max-width:1280px;
-        /* font-family:SimHei; */
+       
         
-    }
+    } */
     .biaoti{
         font-family: "Microsoft Himalaya";
         font-size: 26px;
@@ -111,7 +111,7 @@
 <body>
   <body>
     <div class="container">
-        <div class="header">
+        <!-- <div class="header">
             <div class="header-title">石狮市不动产抵押登记申请表</div>
             <div class="header-accepter">
                 <div class="div-accepter">
@@ -122,12 +122,13 @@
                     <span>单位：平方米、万元</span>
                 </div>
             </div>
-        </div>
-        <table style="max-width:1280px;" border="1" cellspacing="0" cellpadding="4">
+        </div> -->
+        <table border="1" cellspacing="0" cellpadding="4">
             
             <tr>    
-                <td style="width:30px;height:100px;text-align: center;" rowspan="2" style=>申请登记事由</td>
-                <td colspan="3">
+                <td style="width:5%;height:100px;text-align: center;" rowspan="2" >申请登记事由</td>
+                <!-- 表格总宽度不写死的情况下,td按百分比 -->
+                <td colspan="3" style="width:55%">
                     <div class="div-row">
                         <div class="div-inlineBlock">
                             <input type="checkbox" name="type" value="1" >
@@ -152,7 +153,7 @@
                 <!-- <td>1-3</td>
                 <td>1-4</td> -->
                 <td colspan="2">
-                    <div style="width:500px;">
+                    <div>
                         <input type="checkbox" name="" value="1" checked>
                         <span>预购商品房抵押权预告登记</span>
                     </div>
@@ -197,10 +198,10 @@
 
             
             <tr>
-                <td style="width:150px;" rowspan="2">抵押权人姓名(名称)</td>
+                <td rowspan="2" style="width:20%">抵押权人姓名(名称)</td>
                 <td colspan="2" rowspan="2"></td>
                 <!-- <td>7-4</td> -->
-                <td style="width:200px;">证件种类</td>
+                <td style="width:20%">证件种类</td>
                 <td></td>
             </tr>
             <tr>
@@ -316,7 +317,7 @@
             <tr>
                 <td rowspan="3">抵押情况</td>
                 <td>被担保债权数额</td>
-                <td style="width:80px;"></td>
+                <td style="width:10%;"></td>
                 
                 <td>债务履行期限</td>
                 <td colspan="2"></td>
