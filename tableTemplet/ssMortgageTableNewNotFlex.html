@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>tableTemplet</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <style>
+    .container{
+        margin:0 auto;
+        max-width:1280px;
+    }
+    .biaoti{
+        font-family: "Microsoft Himalaya";
+        font-size: 26px;
+        border-bottom:1px dashed #CCCCCC;
+        color: #255e95;
+
+    }
+
+    .btgn{
+        font-family: "Microsoft YaHei UI";
+        font-size: 16px;
+        color: #255e95;
+        background-color: #e9faff;
+        text-align: center;
+    }
+
+
+    .header-title{
+        text-align: center;
+        font-size:30px;
+        font-weight: bold;
+        margin:50px 0 20px 0;
+    }
+    .header-accepter{
+        margin-bottom:5px;
+        /* display: flex;
+        flex-direction: row;
+        justify-content: space-between; */
+
+    }
+    .div-accepter,.div-unit{
+        display: inline-block;
+        width:49%;
+    }
+    .div-unit{
+        text-align: right;
+    }
+
+
+    .div-row{
+        line-height: 30px;
+    }
+    .div-inlineBlock{
+        display: inline-block;
+    }
+    .div-mortgage{
+        margin-left:34px;
+    }
+    .div-other{
+        margin-left:50px;
+        
+    }
+    .div-center{
+        text-align: center;
+        /* display: flex;
+        flex-direction: row;
+        justify-content: center; */
+    }
+    /* 第2个tr后面的所有tr生效 */
+    tr:nth-of-type(n+2) {
+        text-align: center;
+    }
+    .td-textleft{
+        text-align: left;
+    }
+    .div-caution{
+        padding:10px 10px 20px 10px;
+    }
+    .caution-item{
+        line-height: 30px;
+    }
+    .div-note{
+        padding:10px;
+    }
+    .note-row{
+        line-height: 30px;
+    }
+    .div-foot{
+        padding:25px;
+    }
+    .foot-text{
+        text-indent: 30px;
+        margin-bottom:20px;
+    }
+    .applyer-div,.agent-div{
+        line-height: 40px;
+        /* display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        line-height:40px; */
+    }
+
+    .foot-applyer,.foot-agent{
+        width:49%;
+        display: inline-block;
+        text-align: center;
+    }
+    /* .div-date{
+        display: flex;
+        flex-direction: row;
+        text-align: right;
+    } */
+    .date-item{
+        width:49%;
+        display: inline-block;
+        text-align: right;
+    }
+    
+</style>
+
+</head>
+<body>
+  <body>
+    <div class="container">
+        <div class="header">
+            <div class="header-title">石狮市不动产抵押登记申请表</div>
+            <div class="header-accepter">
+                <div class="div-accepter">
+                    <span>收件人（询问人）:</span>
+                    <span></span>
+                </div>
+                <div class="div-unit">
+                    <span>单位：平方米、万元</span>
+                </div>
+            </div>
+        </div>
+        <table border="1" cellspacing="0" cellpadding="4">
+            
+            <tr>    
+                <td style="width:5%;height:100px;text-align: center;" rowspan="2" >申请登记事由</td>
+                <!-- 表格总宽度不写死的情况下,td按百分比 -->
+                <td colspan="3" style="width:55%">
+                    <div class="div-row">
+                        <div class="div-inlineBlock">
+                            <input type="checkbox" name="type" value="1" >
+                            <span>在建工程抵押</span>
+                        </div>
+                        <div class="div-inlineBlock div-mortgage">
+                            <input type="checkbox" name="type" value="2" >
+                            <span>国有土地使用抵押权</span>
+                        </div>
+                    </div>
+                    <div class="div-row">
+                        <div class="div-inlineBlock">
+                            <input type="checkbox" name="type" value="3" >
+                            <span>房地产抵押</span>
+                        </div>
+                        <div class="div-inlineBlock div-other">
+                            <input type="checkbox" name="type" value="4" checked>
+                            <span>其他</span>
+                        </div>
+                    </div>
+                </td>
+                <!-- <td>1-3</td>
+                <td>1-4</td> -->
+                <td colspan="2">
+                    <div>
+                        <input type="checkbox" name="" value="1" checked>
+                        <span>预购商品房抵押权预告登记</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="" value="2">
+                        <span>抵押权预告登记转抵押权首次登记</span>
+                </div></td>
+                <!-- <td>1-6</td> -->
+            </tr>
+            <tr>    
+                <!-- <td>2-1</td> -->
+                <td colspan="5"><div>
+                    <input type="checkbox" name="" value="1" checked>
+                    <span>首次登记</span>
+                    <input type="checkbox" name="" value="2">
+                    <span>变更登记</span>
+                    <input type="checkbox" name="" value="3">
+                    <span>转移登记</span>
+                    <input type="checkbox" name="" value="4">
+                    <span>更正登记</span>
+                    <input type="checkbox" name="" value="5">
+                    <span>补(换)发登记证明</span>
+                    <input type="checkbox" name="" value="6">
+                    <span>其他</span>
+                </div></td>
+                <!-- <td>2-3</td>
+                <td>2-4</td>
+                <td>2-5</td>
+                <td>2-6</td> -->
+            </tr>
+            
+            <tr>
+                <td rowspan="12">申请人情况</td>
+                <td colspan="5">
+                    <div class="div-center">登记申请人</div>
+                </td>
+                <!-- <td>6-3</td>
+                <td>6-4</td>
+                <td>6-5</td>
+                <td>6-6</td> -->
+            </tr>
+
+            
+            <tr>
+                <td rowspan="2" style="width:20%">抵押权人姓名(名称)</td>
+                <td colspan="2" rowspan="2"></td>
+                <!-- <td>7-4</td> -->
+                <td style="width:20%">证件种类</td>
+                <td></td>
+            </tr>
+            <tr>
+                <!-- <td>8-2</td> -->
+                <!-- <td>8-3</td>
+                <td>8-4</td> -->
+                <td>证件号码</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>法定代表人或负责人</td>
+                <td colspan="2"></td>
+                <!-- <td>9-4</td> -->
+                <td>代理人姓名</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>通讯地址</td>
+                <td colspan="2"></td>
+                <!-- <td>10-4</td> -->
+                <td>联系电话</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="5">
+                    <div class="div-center">登记申请人</div>
+                </td>
+                <!-- <td>11-3</td>
+                <td>11-4</td>
+                <td>11-5</td>
+                <td>11-6</td> -->
+            </tr>
+            <tr>
+                <td rowspan="2">抵押权人姓名(名称)</td>
+                <td colspan="2" rowspan="2"></td>
+                <!-- <td>7-4</td> -->
+                <td>证件种类</td>
+                <td></td>
+            </tr>
+            <tr>
+                <!-- <td>8-2</td> -->
+                <!-- <td>8-3</td>
+                <td>8-4</td> -->
+                <td>证件号码</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>法定代表人或负责人</td>
+                <td colspan="2"></td>
+                <!-- <td>9-4</td> -->
+                <td>代理人姓名</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>通讯地址</td>
+                <td colspan="2"></td>
+                <!-- <td>10-4</td> -->
+                <td>联系电话</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="2">主债务人姓名(名称)</td>
+                <td rowspan="2" colspan="2"></td>
+                <!-- <td>16-4</td> -->
+                <td>证件种类</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <!-- <td>17-2</td> -->
+                <!-- <td>17-3</td>
+                <td>17-4</td> -->
+                <td>证件号码</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td rowspan="4">抵押物情况</td>
+                <td>不动产坐落</td>
+                <td colspan="4"></td>
+                <!-- <td>18-3</td>
+                <td>18-4</td>
+                <td>18-5</td>
+                <td>18-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>19-1</td> -->
+                <td>不动产单元号</td>
+                <td colspan="2"></td>
+                <!-- <td>19-4</td> -->
+                <td>用途</td>
+                <td></td>
+            </tr>
+            <tr>
+                <!-- <td>20-1</td> -->
+                <td>土地面积</td>
+                <td colspan="2"></td>
+                <!-- <td>20-4</td> -->
+                <td>建筑面积</td>
+                <td></td>
+            </tr>
+            <tr>
+                <!-- <td>21-1</td> -->
+                <td>不动产权属证书号</td>
+                <td colspan="2"></td>
+                <!-- <td>21-4</td> -->
+                <td>不动产抵押登记证明号</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="3">抵押情况</td>
+                <td>被担保债权数额</td>
+                <td style="width:10%;"></td>
+                
+                <td>债务履行期限</td>
+                <td colspan="2"></td>
+                <!-- <td>22-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>23-1</td> -->
+                <td>抵押物价值</td>
+                <td></td>
+                <td>是否最高抵押</td>
+                <td colspan="2"></td>
+                <!-- <td>23-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>24-1</td> -->
+                <td>在建建筑物抵押范围</td>
+                <td colspan="4"></td>
+                <!-- <td>24-4</td>
+                <td>24-5</td>
+                <td>24-6</td> -->
+            </tr>
+
+            <tr class="tr-textcenter">
+                <td rowspan="6">登记原因及证明</td>
+                <td>登记原因</td>
+                <td colspan="4"></td>
+                <!-- <td>25-4</td>
+                <td>25-5</td>
+                <td>25-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>26-1</td> -->
+                <td rowspan="5">登记原因证明文件</td>
+                <td class="td-textleft" colspan="4">1、</td>
+                <!-- <td>26-4</td>
+                <td>26-5</td>
+                <td>26-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>27-1</td> -->
+                <!-- <td>27-2</td> -->
+                <td class="td-textleft" colspan="4">2、</td>
+                <!-- <td>27-4</td>
+                <td>27-5</td>
+                <td>27-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>28-1</td> -->
+                <!-- <td>28-2</td> -->
+                <td class="td-textleft" colspan="4">3、</td>
+                <!-- <td>28-4</td>
+                <td>28-5</td>
+                <td>28-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>29-1</td> -->
+                <!-- <td>29-2</td> -->
+                <td class="td-textleft" colspan="4">4、</td>
+                <!-- <td>29-4</td>
+                <td>29-5</td>
+                <td>29-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>30-1</td> -->
+                <!-- <td>30-2</td> -->
+                <td class="td-textleft" colspan="4">5、</td>
+                <!-- <td>30-4</td>
+                <td>30-5</td>
+                <td>30-6</td> -->
+            </tr>
+        
+            <tr>
+                <td>备注</td>
+                <td class="td-textleft" colspan="5">
+                    
+                </td>
+                <!-- <td>31-3</td>
+                <td>31-4</td>
+                <td>31-5</td>
+                <td>31-6</td> -->
+            </tr>
+            <tr>
+                <td rowspan="2">登记机构查询事项</td>
+                <td class="td-textleft" colspan="5">
+                    <div class="div-caution">
+                        <div class="caution-item">1、本次抵押登记申请事项是抵押双方的真实意思表示。若因主合同无效导致本次申请的抵押登记无效，由抵押双方自行承担相关责任。</div>
+                        <div class="caution-item">2、抵押权人对本次申请抵押的不动产情况已充分了解，并已实地勘查，申请抵押的不动产没有发生拆改建，没有存在查封、异议登记、权属纠纷和其他权利限制。</div>
+                        <div class="caution-item">3、抵押物价值已由本抵押权人和抵押人审慎协商确定，因抵押物价值可能产生的信贷风险由本抵押权人承担，本抵押权人同意接受该抵押物作为担保。</div>
+                        <div class="caution-item">4、属申请预购商品房抵押权预告登记的，其申请登记的不动产是共有还是单独所有？如是共有，它的共有情况如何？
+                            <div>
+                                <span>
+                                    <input type="checkbox" >
+                                    <span>单独所有</span>
+                                </span>
+                                <span>
+                                    <input type="checkbox" >
+                                    <span>共同所有</span>
+                                </span>
+                                <span>
+                                    <input type="checkbox" >
+                                    <span>按分共有</span>
+                                    <span>（占有份额情况：<span style="text-decoration: underline;"></span>）。</span>
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="caution-item">5、其他事项：</div>
+                    </div>
+                </td>
+                <!-- <td>32-3</td>
+                <td>32-4</td>
+                <td>32-5</td>
+                <td>32-6</td> -->
+            </tr>
+            <tr>
+                <!-- <td>33-1</td> -->
+                <td class="td-textleft" colspan="5">
+                    <div class="div-note">
+                        <div class="note-row">
+                            <b>注释：</b>
+                            <span>属银行机构监签的，对抵押人的询问事项由抵押权人（经办人签章：）</span>
+                        <div class="note-row">
+                            负责代为询问。抵押权人保证抵押人及其共有权人（或其代理人）接受询问及在所提供的申请材料（含本申请表）中的签章、按手印的过程均在本抵押权人监督之下进行，确系其真实意思的表示。
+                            
+                        </div>
+                    </div>
+                </td>
+                <!-- <td>33-3</td>
+                <td>33-4</td>
+                <td>33-5</td>
+                <td>33-6</td> -->
+            </tr>
+            <tr>
+                <td class="td-textleft" colspan="6">
+                    <div class="div-foot">
+                        <div class="foot-text">
+                            申请人（被询问人）对以上询问事项内容经确认无异议，对本申请表所填写的内容及提交的全部登记申请材料内容已充分知情并理解其法律意义，对其真实性、有效性、合法性负责。如有不实，申请人愿承担全部法律责任。
+                        </div>
+                        <div class="applyer-div">
+                            <div class="foot-applyer">
+                                <span>申请人</span>
+                                <span>（签章）：</span>
+                            </div>
+                            <div class="foot-applyer">
+                                <span>申请人</span>
+                                <span>（签章）：</span>
+                            </div>
+                        </div>
+                        <div class="agent-div">
+                            <div class="foot-agent">
+                                <span>代理人</span>
+                                <span>（签章）：</span>
+                            </div>
+                            <div class="foot-agent">
+                                <span>代理人</span>
+                                <span>（签章）：</span>
+                            </div>
+                        </div>
+                        <div class="div-date">
+                            <div class="date-item">
+                                <span>年</span>
+                                <span>&nbsp;</span>
+                                <span>月</span>
+                                <span>&nbsp;</span>
+                                <span>日</span>
+                                <span>&nbsp;</span>
+                            </div>
+                            <div class="date-item">
+                                <span>年</span>
+                                <span>&nbsp;</span>
+                                <span>月</span>
+                                <span>&nbsp;</span>
+                                <span>日</span>
+                                <span>&nbsp;</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+                
+            </tr>
+        </table>
+    </div>
+</body>
+
+
+<script src="../src/js/jquery.min.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+// $(function(){
+
+	
+// });
+
+function test () {
+  
+    
+}
+
+</script>
+
+</body>
+</html>
