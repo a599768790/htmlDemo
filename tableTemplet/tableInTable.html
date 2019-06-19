@@ -26,14 +26,24 @@
         border:1px solid #ccc;
         text-align: center;
     }
-   
+    .otherTable{
+        border-collapse: collapse;
+        margin-top:-1px;
+    }
+    .otherTable td{
+        border:1px solid #ccc;
+        
+    }
+   .otherSmallTable{
+        border-collapse: collapse;
+   }
 </style>
 
 </head>
 <body>
     <div class="container">
         
-        
+        <!-- 大表格三个属性 -->
         <table style="margin-top:-1px;" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td class="bigTd">抵押物情况</td>
@@ -65,10 +75,53 @@
                             <td></td>
                         </tr>
                     </table>
+                    <table style="width: 100%;" border="0" cellspacing="0" cellpadding="0" class="smallTable">
+                        <tr>
+                            <td style="width:20%;">不动产坐落</td>
+                            <td colspan="3"></td>
+                            <!-- <td></td>
+                            <td></td> -->
+                        </tr>
+                        <tr>
+                            <td>不动产单元号</td>
+                            <td style="width:30%;"></td>
+                            <td style="width:20%;">用途</td>
+                            <td style="width:30%;"></td>
+                        </tr>
+                        <tr>
+                            <td>土地面积</td>
+                            <td></td>
+                            <td>建筑面积</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>不动产权属证书号</td>
+                            <td></td>
+                            <td>不动产抵押登记证明号</td>
+                            <td></td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
-        
+        <table border="0" cellspacing="0" cellpadding="0" style="width:100%" class="otherTable">
+            <tr>
+                <td style="width:100%;">1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="0" cellspacing="0" cellpadding="0" style="width:100%" class="otherSmallTable">
+                        <tr>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
         
 
     </div>
